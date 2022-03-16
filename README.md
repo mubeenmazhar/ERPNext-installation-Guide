@@ -68,17 +68,21 @@ For ubuntu 20.04
     
  For ubuntu 18.04
  
-a
-    sudo apt-get install software-properties-common dirmngr apt-transport-https --yes
-b
-    sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-c
-    sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirrors.aliyun.com/mariadb/repo/10.3/ubuntu bionic main'
-d
-    sudo apt update
-e
-    sudo apt install mariadb-server --yes
-     
+```
+sudo apt-get install software-properties-common dirmngr apt-transport-https --yes
+```
+```
+sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+```
+```
+sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirrors.aliyun.com/mariadb/repo/10.3/ubuntu bionic main'
+```
+```
+sudo apt update
+```
+```
+sudo apt install mariadb-server --yes
+```     
 IMPORTANT :During this installation you'll be prompted to set the MySQL root password.
 If you are not prompted for the same You can initialize the MySQL server setup by executing 
 the following command
@@ -94,15 +98,15 @@ the following command
     sudo nano /etc/mysql/my.cnf
 
 add this to the my.cnf file
+```
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
 
-    [mysqld]
-    character-set-client-handshake = FALSE
-    character-set-server = utf8mb4
-    collation-server = utf8mb4_unicode_ci
-
-    [mysql]
-    default-character-set = utf8mb4
-
+[mysql]
+default-character-set = utf8mb4
+```
 Now press (Ctrl-X) to exit
 
     sudo service mysql restart
@@ -118,12 +122,15 @@ Node.js is an open source, cross-platform runtime environment for developing ser
 networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js
 runtime on OS X, Microsoft Windows, and Linux.
 
-a
-    sudo apt-get install curl
-b    
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-c    
-    sudo apt-get install -y nodejs
+```
+sudo apt-get install curl
+```
+```
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+```
+```
+sudo apt-get install -y nodejs
+```
 
 ### STEP 10  install Yarn
 Yarn is a JavaScript package manager that aims to be speedy, deterministic, and secure. 
@@ -151,28 +158,34 @@ before next step and You must login.
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
-a
-    bench init bench --frappe-branch version-13
-b    
-    cd bench/
-c
-    bench start
-    
+```
+bench init bench --frappe-branch version-13
+```
+```
+cd bench/
+```
+```
+bench start
+```
+
 ### STEP 14 create a site in frappe bench 
     
     bench new-site dcode.com
 
 ### STEP 15 install ERPNext latest version in bench & site
 
-a
-    bench get-app erpnext --branch version-13
-b
-    bench get-app https://github.com/frappe/erpnext --branch version-13
-c
-    bench --site dcode.com install-app erpnext
-d    
-    bench start
-
+```
+bench get-app erpnext --branch version-13
+```
+```
+bench get-app https://github.com/frappe/erpnext --branch version-13
+```
+```
+bench --site dcode.com install-app erpnext
+```
+```
+bench start
+```
 
 #
 #
@@ -181,13 +194,15 @@ d
 
 ### STEP 16  Create a new user
 
-a
-    sudo adduser erp
-b
-    sudo usermod -aG sudo erp
-c
-    su - erp
-    
+```
+sudo adduser erp
+```
+```
+sudo usermod -aG sudo erp
+```
+```
+su - erp
+```    
 ### Follow the steps from Step 12 to Step 15
 
 ### Step 17 setup production
