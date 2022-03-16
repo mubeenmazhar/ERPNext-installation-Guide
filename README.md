@@ -23,13 +23,13 @@ Git is the most commonly used version control system. Git tracks the changes you
 so you have a record of what has been done, and you can revert to specific versions should you ever need to. 
 Git also makes collaboration easier, allowing changes by multiple people to all be merged into one source.
     
-    sudo apt-get install git
+    sudo apt-get install git --yes
 
 ### STEP 2 install python-dev
 python-dev is the package that contains the header files for the Python C API, 
 which is used by lxml because it includes Python C extensions for high performance.
 
-    sudo apt-get install python3-dev
+    sudo apt-get install python3-dev --yes
 
 ### STEP 3 Install setuptools and pip (Python's Package Manager).
 Setuptools is a collection of enhancements to the Python distutils that allow developers 
@@ -40,7 +40,7 @@ look to the user like ordinary Python packages based on the distutils.
 pip is a package manager for Python.  It's a tool that allows you to install and manage 
 additional libraries and dependencies that are not distributed as part of the standard library.
 
-    sudo apt-get install python3-setuptools python3-pip
+    sudo apt-get install python3-setuptools python3-pip --yes
 
 ### STEP 4 Install virtualenv
 virtualenv is a tool for creating isolated Python environments containing their own copy of
@@ -48,7 +48,7 @@ python , pip , and their own place to keep libraries installed from PyPI.
 It's designed to allow you to work on multiple projects with different dependencies 
 at the same time on the same machine.
     
-    sudo apt-get install virtualenv
+    sudo apt-get install virtualenv --yes
 
 ### STEP 5 Install MariaDB 10.3 stable package
 MariaDB is developed as open source software and as a relational database it provides an SQL interface 
@@ -68,16 +68,16 @@ For ubuntu 20.04
     
  For ubuntu 18.04
  
-###### a
-    sudo apt-get install software-properties-common dirmngr apt-transport-https
-###### b
+a
+    sudo apt-get install software-properties-common dirmngr apt-transport-https --yes
+b
     sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-###### c
+c
     sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirrors.aliyun.com/mariadb/repo/10.3/ubuntu bionic main'
-###### d
+d
     sudo apt update
-###### e
-    sudo apt install mariadb-server
+e
+    sudo apt install mariadb-server --yes
      
 IMPORTANT :During this installation you'll be prompted to set the MySQL root password.
 If you are not prompted for the same You can initialize the MySQL server setup by executing 
@@ -87,7 +87,7 @@ the following command
     
 ### STEP 6  MySQL database development files
 
-    sudo apt-get install libmysqlclient-dev
+    sudo apt-get install libmysqlclient-dev --yes
 
 ### STEP 7 Edit the mariadb configuration ( unicode character encoding )
 
@@ -111,18 +111,18 @@ Now press (Ctrl-X) to exit
 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, 
 cache, and message broker.
     
-    sudo apt-get install redis-server
+    sudo apt-get install redis-server --yes
 
 ### STEP 9 install Node.js 14.X package
 Node.js is an open source, cross-platform runtime environment for developing server-side and 
 networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js
 runtime on OS X, Microsoft Windows, and Linux.
 
-######a
+a
     sudo apt-get install curl
-######b    
+b    
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-######c    
+c    
     sudo apt-get install -y nodejs
 
 ### STEP 10  install Yarn
@@ -136,7 +136,7 @@ Yarn is a package manager for JavaScript.
 Wkhtmltopdf is an open source simple and much effective command-line shell utility that enables 
 user to convert any given HTML (Web Page) to PDF document or an image (jpg, png, etc)
 
-    sudo apt-get install xvfb libfontconfig wkhtmltopdf
+    sudo apt-get install xvfb libfontconfig wkhtmltopdf --yes
     
 ### if you have to setup production server go to Step 16 else continue 
 
@@ -151,9 +151,11 @@ before next step and You must login.
     
 ### STEP 13 initilise the frappe bench & install frappe latest version 
 
-    bench init frappe-bench --frappe-branch version-13
-    
-    cd frappe-bench/
+a
+    bench init bench --frappe-branch version-13
+b    
+    cd bench/
+c
     bench start
     
 ### STEP 14 create a site in frappe bench 
@@ -162,12 +164,13 @@ before next step and You must login.
 
 ### STEP 15 install ERPNext latest version in bench & site
 
+a
     bench get-app erpnext --branch version-13
-    ###OR
+b
     bench get-app https://github.com/frappe/erpnext --branch version-13
-
+c
     bench --site dcode.com install-app erpnext
-    
+d    
     bench start
 
 
@@ -178,9 +181,12 @@ before next step and You must login.
 
 ### STEP 16  Create a new user
 
-    sudo adduser dcode-frappe
-    sudo usermod -aG sudo dcode-frappe
-    su - dcode-frappe
+a
+    sudo adduser erp
+b
+    sudo usermod -aG sudo erp
+c
+    su - erp
     
 ### Follow the steps from Step 12 to Step 15
 
