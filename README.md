@@ -15,6 +15,9 @@
 
 
 
+### Update
+      sudo apt update && sudo apt upgrade --yes
+
 ### STEP 1 Install git
 Git is the most commonly used version control system. Git tracks the changes you make to files, 
 so you have a record of what has been done, and you can revert to specific versions should you ever need to. 
@@ -65,10 +68,15 @@ For ubuntu 20.04
     
  For ubuntu 18.04
  
+###### a
     sudo apt-get install software-properties-common dirmngr apt-transport-https
+###### b
     sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+###### c
     sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirrors.aliyun.com/mariadb/repo/10.3/ubuntu bionic main'
+###### d
     sudo apt update
+###### e
     sudo apt install mariadb-server
      
 IMPORTANT :During this installation you'll be prompted to set the MySQL root password.
@@ -110,8 +118,11 @@ Node.js is an open source, cross-platform runtime environment for developing ser
 networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js
 runtime on OS X, Microsoft Windows, and Linux.
 
+######a
     sudo apt-get install curl
+######b    
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+######c    
     sudo apt-get install -y nodejs
 
 ### STEP 10  install Yarn
